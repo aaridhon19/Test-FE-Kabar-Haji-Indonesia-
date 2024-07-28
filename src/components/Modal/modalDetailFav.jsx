@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import btnBack from "@/assets/Button/Back/icon.svg";
 import btnBookmark from "@/assets/Button/Bookmark/icon.svg";
 import rate from "@/assets/Button/Rating/Star.svg";
@@ -6,11 +6,11 @@ import location from "@/assets/Button/Location/icon.svg";
 import Image from "next/image";
 import { useState } from "react";
 
-export default function ModalDetail({ travel, onClose }) {
-  if (!travel) return null;
+export default function ModalDetailFav({ fav, onCloseFav }) {
+  if (!fav) return null;
 
   const [showDesc, setShowDesc] = useState(false);
-  const shortLocation = travel.location.split(",")[0];
+  const shortLocation = fav.location.split(",")[0];
   const maxDesc = 100;
 
   const handleShowDesc = () => {
@@ -18,11 +18,11 @@ export default function ModalDetail({ travel, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
       <div className="relative bg-white p-6 rounded-lg max-w-lg w-full bg-opacity-95">
         <div className="absoulte top-2 left-2 flex justify-between space-x-2 mx-4 mt-8">
           <div
-            onClick={onClose}
+            onClick={onCloseFav}
             className="bg-gray-400 p-2 rounded-full hover:bg-gray-300 transition duration-300 cursor-pointer z-10"
           >
             <Image src={btnBack} className="object-cover h-7 w-7" alt="Back" />
@@ -36,17 +36,17 @@ export default function ModalDetail({ travel, onClose }) {
           </div>
         </div>
         <img
-          src={travel.image}
-          alt={travel.name}
+          src={fav.image}
+          alt={fav.name}
           width={600}
           height={400}
           className="w-full mb-4 -mt-16 rounded-lg"
         />
         <h2 className="text-2xl font-bold mb-4" style={{ color: "#1B1E28" }}>
-          {travel.name}
+          {fav.name}
         </h2>
         <p className="mb-4 text-black" style={{ color: "#7D848D" }}>
-          {travel.location}
+          {fav.location}
         </p>
         <div className="flex justify-between mr-2">
           <div className="flex justify-between">
@@ -57,10 +57,10 @@ export default function ModalDetail({ travel, onClose }) {
           </div>
           <div className="flex justify-between">
             <Image src={rate} className="h-6 w-5 mr-1.5" />
-            <p className="mb-4 text-black">{travel.rate}</p>
+            <p className="mb-4 text-black">{fav.rate}</p>
           </div>
           <div className="flex justify-between">
-            <p className="mb-4 text-blue-400">${travel.price}/</p>
+            <p className="mb-4 text-blue-400">${fav.price}/</p>
             <p className="mb-4 text-black" style={{ color: "#7D848D" }}>
               Person
             </p>
@@ -74,12 +74,12 @@ export default function ModalDetail({ travel, onClose }) {
         </h2>
         <p className="mb-4" style={{ color: "#7D848D" }}>
           {showDesc
-            ? travel.description
-            : `${travel.description.slice(0, maxDesc)}...`}
-          {travel.description.length > maxDesc && (
+            ? fav.description
+            : `${fav.description.slice(0, maxDesc)}...`}
+          {fav.description.length > maxDesc && (
             <span
               onClick={handleShowDesc}
-              style={{ color:"#FF7029"}}
+              style={{ color: "#FF7029" }}
               className="cursor-pointer ml-2"
             >
               {showDesc ? "" : "Read more"}

@@ -48,7 +48,7 @@ export default function Navbar() {
             alt="Logo"
           />
         </div>
-        <div className="hidden md:flex flex-grow justify-center items-center space-x-4">
+        <div className="hidden md:flex flex-grow justify-center items-center space-x-4 ml-52">
           <Link
             href="/"
             className={`text-black p-2 rounded-xl transition duration-300 ease-in-out transform hover:scale-105 ${
@@ -82,7 +82,7 @@ export default function Navbar() {
             About
           </Link>
         </div>
-        <div className="hidden md:flex items-center space-x-4 mr-4">
+        <div className="hidden lg:flex items-center space-x-4 mr-4">
           <Link href="/message">
             <div className="bg-gray-100 p-3 rounded-xl hover:bg-gray-200 transition duration-300">
               <Image

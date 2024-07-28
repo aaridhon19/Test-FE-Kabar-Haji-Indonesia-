@@ -28,8 +28,17 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-          <button className="bg-blue-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-600 transition duration-300">
-            Start Your Journey
+          <button
+            type="submit"
+            className="px-10 py-4 rounded-xl font-medium"
+            style={{
+              backgroundColor: "#24BAEC",
+              marginBottom: 5,
+              fontSize: "20px",
+              fontStyle: "Semibold",
+            }}
+          >
+            Start Exploring
           </button>
         </div>
       </section>
