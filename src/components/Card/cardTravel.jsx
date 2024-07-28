@@ -4,9 +4,11 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import rate from "@/assets/Button/Rating/Star.svg";
 import location from "@/assets/Button/Location/icon.svg";
+import DetailTravelPage from "@/app/(afterLogin)/travel/[id]/page";
 
 export default function CardTravel() {
   const [travel, setTravel] = useState([]);
+  const [selectedTravel, setSelectedTravel] = useState(null);
   const [showAll, setShowAll] = useState(false);
   const showMax = 3;
 
@@ -29,17 +31,21 @@ export default function CardTravel() {
     getTravel();
   }, []);
 
-  const handleCardClick = (id) => {
-    window.location.href = `/travel/${id}`;
+  const handleCardClick = (item) => {
+    setSelectedTravel(item)
   };
+
+  const handleCloseCardClick = () => {
+    setSelectedTravel(null);
+  }
 
   const showAllBtn = () => {
     setShowAll(!showAll);
   };
 
   return (
-    <div className="overflow-x-auto px-3 mb-14 mx-4">
-      <div className="flex justify-between mb-6">
+    <div className="overflow-x-auto px-3 mb-14 mx-4 py-2">
+      <div className="flex justify-between mb-2">
         <h1 className="text-2xl font-medium text-start text-black">
           Best Destination
         </h1>
@@ -52,10 +58,10 @@ export default function CardTravel() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {(showAll ? travel : travel.slice(0, showMax)).map((item) => (
-          <div key={item.id} className="p-7 shadow-xl rounded-xl">
+          <div key={item.id} className="p-7 shadow-inner rounded-lg mb-2 hover:bg-gray-100 transition duration-300 cursor-pointer">
             <div
               className="card w-full cursor-pointer"
-              onClick={() => handleCardClick(item.id)}
+              onClick={() => handleCardClick(item)}
             >
               <figure className="overflow-hidden rounded-xl transition-transform duration-300 hover:scale-105">
                 <img
@@ -97,6 +103,12 @@ export default function CardTravel() {
           </div>
         ))}
       </div>
+      {selectedTravel && (
+        <DetailTravelPage
+          travel={selectedTravel}
+          onClose={handleCloseCardClick}
+        />
+      )}
     </div>
   );
 }

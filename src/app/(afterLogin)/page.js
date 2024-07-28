@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="home-container min-h-screen flex flex-col">
       <Carousel />
-      <div className="ml-5">
+      <div className="ml-5 mt-6">
         <Image className="h-24" src={textHome} alt="Explore the Beautiful World"/>
       </div>
       <TravelPage />

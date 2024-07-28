@@ -8,26 +8,23 @@ import Image from "next/image";
 
 export default function Carousel() {
   return (
-    <section className="py-8">
-      <div className="carousel rounded-box mx-4">
-        <div className="carousel-item flex border-r border-b border-gray-300 p-4 rounded-lg justify-between items-center mr-6 shadow-lg">
-          <Image className="h-60 w-60" src={slide1} alt="Slide 1" />
-          <div className="ml-4 flex justify-center">
+    <section className="py-8 bg-gray-100">
+      <div className="carousel w-full mx-6 h-60">
+        <div style={{backgroundImage: `url(${slide1.src})`}} className="w-full carousel-item flex border-r border-b border-gray-300 p-4 rounded-lg justify-between items-center mr-6 shadow-lg h-1/2-screen bg-cover bg-center relative">
+          <div className="absolute inset-0 flex justify-center items-center">
             <Image src={text1} alt="Text 1" />
           </div>
         </div>
 
-        <div className="carousel-item flex border-l border-r border-b border-gray-300 p-4 rounded-lg justify-between items-center mr-6 shadow-lg">
-          <Image className="h-60 w-60" src={slide2} alt="Slide 2" />
-          <div className="ml-4 flex justify-center">
-            <Image src={text2} alt="Text 2" />
+        <div style={{backgroundImage: `url(${slide2.src})`}} className="w-full carousel-item flex border-r border-b border-gray-300 p-4 rounded-lg justify-between items-center mr-6 shadow-lg h-1/2-screen bg-cover bg-center relative">
+          <div className="absolute inset-0 flex justify-center items-center">
+            <Image src={text2} alt="Text 1" />
           </div>
         </div>
 
-        <div className="carousel-item flex border-l border-b border-gray-300 p-4 rounded-lg justify-between items-center shadow-lg">
-          <Image className="h-60 w-60" src={slide3} alt="Slide 3" />
-          <div className="ml-4 flex justify-center">
-            <Image src={text3} alt="Text 3" />
+        <div style={{backgroundImage: `url(${slide3.src})`}} className="w-full carousel-item flex border-r border-b border-gray-300 p-4 rounded-lg justify-between items-center mr-6 shadow-lg h-1/2-screen bg-cover bg-center relative">
+          <div className="absolute inset-0 flex justify-center items-center">
+            <Image src={text3} alt="Text 1" />
           </div>
         </div>
       </div>

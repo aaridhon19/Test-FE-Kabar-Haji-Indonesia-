@@ -1,9 +1,9 @@
 import ModalDetail from "@/components/Modal/modalDetail";
 
-export default function DetailTravelPage() {
+export default function DetailTravelPage({travel, onClose}) {
     return (
         <div>
-            <ModalDetail />
+            <ModalDetail travel={travel} onClose={onClose}/>
         </div>
     )
 }
