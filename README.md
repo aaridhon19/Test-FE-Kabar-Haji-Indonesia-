@@ -6,7 +6,7 @@
 git clone https://github.com/aaridhon19/Test-FE-Kabar-Haji-Indonesia-.git
 ```
 
-## Instal dependensi:
+## Install Depedencies:
 
 ```bash
 npm install
